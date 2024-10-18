@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="47.862" height="42.544" viewBox="0 0 47.862 42.544">
+  <g id="Group_1429" data-name="Group 1429" transform="translate(-11.505 -10.11)">
+    <path id="Path_41" data-name="Path 41" d="M0,5.016H5.016V0H0ZM1.328,1.328H3.687V3.687H1.328Zm0,0" transform="translate(23.456 22.314)" fill="#e62247"/>
+    <path id="Path_42" data-name="Path 42" d="M149.3,0V5.016h16.057V0Zm14.729,3.687h-13.4V1.328h13.4Zm0,0" transform="translate(-120.29 22.314)" fill="#e62247"/>
+    <path id="Path_43" data-name="Path 43" d="M0,152.024H5.016v-5.016H0Zm1.328-3.687H3.687V150.7H1.328Zm0,0" transform="translate(23.456 -116.59)" fill="#e62247"/>
+    <path id="Path_44" data-name="Path 44" d="M149.3,152.024h16.057v-5.016H149.3Zm1.328-3.687h13.4V150.7h-13.4Zm0,0" transform="translate(-120.29 -116.59)" fill="#e62247"/>
+    <path id="Path_45" data-name="Path 45" d="M0,299.028H5.016v-5.016H0Zm1.328-3.687H3.687V297.7H1.328Zm0,0" transform="translate(23.456 -255.489)" fill="#e62247"/>
+    <path id="Path_46" data-name="Path 46" d="M149.3,299.028h16.057v-5.016H149.3Zm1.328-3.687h13.4V297.7h-13.4Zm0,0" transform="translate(-120.29 -255.489)" fill="#e62247"/>
+    <path id="Icon_material-web-asset" data-name="Icon material-web-asset" d="M47.044,6H9.818A5.317,5.317,0,0,0,4.5,11.318V43.226a5.317,5.317,0,0,0,5.318,5.318H47.044a5.334,5.334,0,0,0,5.318-5.318V11.318A5.317,5.317,0,0,0,47.044,6Zm0,37.226H9.818V16.636H47.044Z" transform="translate(7.005 4.11)" fill="#e62247"/>
+  </g>
+</svg>

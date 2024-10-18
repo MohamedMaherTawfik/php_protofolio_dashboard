@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Group_7" data-name="Group 7" transform="translate(-135 -11328)">
+    <g id="Oval" transform="translate(135 11328)" fill="none" stroke="#e62247" stroke-miterlimit="10" stroke-width="1">
+      <circle cx="24" cy="24" r="24" stroke="none"/>
+      <circle cx="24" cy="24" r="23.5" fill="none"/>
+    </g>
+    <path id="Path" d="M15.684.061a.571.571,0,0,0-.512,0h0L.316,7.489A.571.571,0,0,0,.469,8.562l5.9,1.073,1.073,5.9a.571.571,0,0,0,.481.463A.558.558,0,0,0,8,16a.571.571,0,0,0,.511-.316L15.939.827A.571.571,0,0,0,15.684.061Z" transform="translate(151 11344)" fill="#e62247"/>
+  </g>
+</svg>

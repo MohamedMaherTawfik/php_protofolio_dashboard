@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Group_9" data-name="Group 9" transform="translate(-135 -11456)">
+    <g id="Oval" transform="translate(135 11456)" fill="none" stroke="#e62247" stroke-miterlimit="10" stroke-width="1">
+      <circle cx="24" cy="24" r="24" stroke="none"/>
+      <circle cx="24" cy="24" r="23.5" fill="none"/>
+    </g>
+    <path id="Combined_Shape" data-name="Combined Shape" d="M2.362,12A2.383,2.383,0,0,1,0,9.6V3.385L7.519,8.058a.893.893,0,0,0,.944,0L16,3.385V9.6A2.384,2.384,0,0,1,13.639,12ZM.076,1.885A2.357,2.357,0,0,1,2.362,0H13.639a2.358,2.358,0,0,1,2.286,1.885L8.009,6.808Z" transform="translate(151 11474)" fill="#e62247"/>
+  </g>
+</svg>

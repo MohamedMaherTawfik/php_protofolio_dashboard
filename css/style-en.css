@@ -1,0 +1,43 @@
+/***************************** Start Edit Home Page *****************************/
+.scroll-top-btn {
+    right: unset;
+    left: 15px;
+}
+.about-sec .pattern {
+    left: -100px;
+    right: unset;
+}
+.about-sec .img-box .card-img {
+    left: 0;
+    right: unset;
+}
+.about-sec .text-box .more-btn .icon ,
+.services-sec .serv_card .content .more-btn .right-arrow-icon{
+    transform: rotateY(180deg);
+}
+.about-sec .text-box .more-btn:hover .icon,
+.services-sec .serv_card .content .more-btn:hover .right-arrow-icon{
+    animation: zoomIn 1s both !important;
+}
+.services-sec .serv_card .pattern {
+    left: 25px;
+    right: unset;
+}
+.contact-sec .line {
+    right: 0;
+    left: unset;
+    transform: rotateY(180deg);
+}
+.newsletter-sec .inner .form-group .submit-btn {
+    left: 5px;
+    right: unset;
+}
+footer .pattern {
+    right: unset;
+    left: 14%;
+}
+.text-h .subtitleو
+footer .content .title,
+.modal .modal-content .modal-title {
+    letter-spacing: 0px;
+}

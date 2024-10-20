@@ -15,7 +15,7 @@
       <div>
         <img src="images/<?php echo $row['image'] ?>" alt="">
         <button class="btn btn-primary"><a href="update_partners.php?id=<?php echo $row['id']; ?>">UPDATE</a></button>
-        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-danger"><a href="delete_partners.php?id=<?php echo $row['id']; ?>">DELETE</a></button>
         <div>
             <br>
         </div>

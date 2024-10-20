@@ -15,7 +15,7 @@
       <div>
         <?php echo $row['title'] ;; ?>
         <button class="btn btn-primary"><a href="update_services.php?id=<?php echo $row['id']; ?>">UPDATE</a></button>
-        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-danger"><a href="delete_services.php?id=<?php echo $row['id']; ?>">DELETE</a></button>
         <div>
             <br>
         </div>

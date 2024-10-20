@@ -42,6 +42,9 @@
 
               <div style="padding: 15px">
                 <input type="submit" class="btn btn-success" name="add_title" style="color: black;">
+                <br>
+                <br>
+                <button class="btn btn-primary"><a href="show_all_headers.php" style="color: white">Show</a></button>
               </div>
 
             </form>
@@ -49,8 +52,11 @@
         </div>
         <!-- main-panel ends -->
       </div>
+
       <!-- page-body-wrapper ends -->
     </div>
+
+   
     <!-- container-scroller -->
     <!-- plugins:js -->
     <?php include('script.php') ?>

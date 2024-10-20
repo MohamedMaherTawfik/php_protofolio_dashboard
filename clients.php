@@ -24,26 +24,16 @@
         <div class="container" align="center">
         <form action="insert_data.php" method="POST" enctype="multipart/form-data">
 
-              <div style="padding: 15px">
-                <label for="title">Title</label>
-                <input type="text" name="title" placeholder="Title" style="color: black;">
-              </div>
-
-              <div style="padding: 15px">
-                <label for="subtitle">subtitle</label>
-                <input type="text" name="subtitle" placeholder="subtitle" style="color: black;">
-              </div>
-
                 <div style="padding: 15px">
-                <label for="icon">icon</label>
-                <input type="file" name="icon" placeholder="icon" style="color: black;">
+                <label for="image">image</label>
+                <input type="file" name="image" placeholder="image" style="color: black;">
               </div>
 
               <div style="padding: 15px">
-                <input type="submit" class="btn btn-success" name="add_goal" style="color: black;">
+                <input type="submit" class="btn btn-success" name="add_client" style="color: black;">
                 <br>
                 <br>
-                <button class="btn btn-primary"><a href="show_all_goals.php" style="color: white">Show</a></button>
+                <button class="btn btn-primary"><a href="show_all_clients.php" style="color: white">Show</a></button>
               </div>
 
             </form>

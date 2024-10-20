@@ -41,6 +41,9 @@
 
               <div style="padding: 15px">
                 <input type="submit" class="btn btn-success" name="add_service" style="color: black;">
+                <br>
+                <br>
+                <button class="btn btn-primary"><a href="show_all_services.php" style="color: white">Show</a></button>
               </div>
 
             </form>

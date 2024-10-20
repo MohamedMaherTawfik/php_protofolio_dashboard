@@ -105,29 +105,26 @@
     <main>
         <!--Start clients-sec -->
         <section class="clients-sec">
+            <?php
+            $client_query="SELECT * FROM clients";
+            $client_result = mysqli_query($connection, $client_query);
+            
+            ?>
             <div class="container">
                 <div class="swiper-container clients-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="images/clients-1.png" alt="" class="partner-img wow zoomIn"
+                        <?php
+                        while($client_row = mysqli_fetch_assoc($client_result)){
+                            ?>
+                       <div class="swiper-slide">
+                            <img src="images/<?php echo $client_row['image'] ?>" alt="" class="partner-img wow zoomIn"
                                 data-wow-duration="2s" />
                         </div>
-                        <div class="swiper-slide">
-                            <img src="images/clients-2.png" alt="" class="partner-img wow zoomIn"
-                                data-wow-duration="2s" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/clients-3.png" alt="" class="partner-img wow zoomIn"
-                                data-wow-duration="2s" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/clients-4.png" alt="" class="partner-img wow zoomIn"
-                                data-wow-duration="2s" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/clients-5.png" alt="" class="partner-img wow zoomIn"
-                                data-wow-duration="2s" />
-                        </div>
+                        <?php
+                        }
+                        ?>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -146,9 +143,9 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="img-box">
-                            <img src="images/about-sec-1.png" alt="" class="main-img wow fadeInRight"
+                            <img src="images/<?php echo $about_row['image'] ?>" alt="" class="main-img wow fadeInRight"
                                 data-wow-duration="2s" />
-                            <img src="images/about-sec-2.png" alt="" class="card-img wow fadeInLeft"
+                            <img src="images/<?php echo $about_row['image'] ?>" alt="" class="card-img wow fadeInLeft"
                                 data-wow-duration="2s" data-wow-delay=".5s" />
                         </div>
                     </div>
@@ -162,13 +159,12 @@
                                 <?php echo $about_row['description']; ?>
                             </p>
                             <a href="#" class="more-btn mt-4 d-block" data-toggle="modal"
-                                data-target="#contentModal"><img src="<?php echo $about_row['image']; ?>" alt=""
+                                data-target="#contentModal"><img src="" alt=""
                                     class="icon" /> Learn more</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <img src="images/pattern1.png" alt="" class="pattern wow fadeInRight" data-wow-duration="2s">
         </section>
         <!--Start about-goals -->
         <section class="about-goals">
@@ -257,67 +253,29 @@
                     <p class="p mt-3">The definition of business is an occupation</p>
                 </div>
                 <div class="tab-wrapper">
+                    <?php 
+                    
+                    $work_query="SELECT * FROM `latest work`";
+                    $work_result = mysqli_query($connection, $work_query);
+                    ?>
                     <div class="row">
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-1.png" data-fancybox="images">
-                                <img src="images/portfolio-1.png" alt="" class="port_img sm" />
+
+                    <?php 
+                    while($work_row = mysqli_fetch_assoc($work_result)){
+                        ?>
+
+                            <div class="col-lg-3 col-md-6">
+                            <a href="images/<?php echo $work_row['image'] ?>" data-fancybox="images">
+                                <img src="<?php echo $work_row['image'] ?>" alt="" class="port_img sm" />
                             </a>
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-11.png" data-fancybox="images">
-                                <img src="images/portfolio-11.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-12.png" data-fancybox="images">
-                                <img src="images/portfolio-12.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-2.png" data-fancybox="images">
-                                <img src="images/portfolio-2.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-3.png" data-fancybox="images">
-                                <img src="images/portfolio-3.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-4.png" data-fancybox="images">
-                                <img src="images/portfolio-4.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-5.png" data-fancybox="images">
-                                <img src="images/portfolio-5.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-8.png" data-fancybox="images">
-                                <img src="images/portfolio-8.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-6.png" data-fancybox="images">
-                                <img src="images/portfolio-6.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-7.png" data-fancybox="images">
-                                <img src="images/portfolio-7.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-9.png" data-fancybox="images">
-                                <img src="images/portfolio-9.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-10.png" data-fancybox="images">
-                                <img src="images/portfolio-10.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
+                        <?php
+
+                    }
+
+                    ?>
+                        
+                      
                     </div>
                 </div>
             </div>
@@ -331,18 +289,20 @@
                     <p class="p mt-3">The definition of business is an occupation</p>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                        <img src="images/partners-1.png" alt="" class="partner-img wow zoomIn" data-wow-duration="2s" />
+                    <?php 
+                    $partner_query="SELECT * FROM `partners`";
+                    $partner_result = mysqli_query($connection, $partner_query);
+                    
+                    ?>
+                    <?php
+                    while($partner_row = mysqli_fetch_assoc($partner_result)){
+                        ?>
+                         <div class="col-md-6 col-lg-3">
+                        <img src="images/<?php echo $partner_row['image'] ?>" alt="" class="partner-img wow zoomIn" data-wow-duration="2s" />
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <img src="images/partners-2.png" alt="" class="partner-img wow zoomIn" data-wow-duration="2s" />
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <img src="images/partners-3.png" alt="" class="partner-img wow zoomIn" data-wow-duration="2s" />
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <img src="images/partners-4.png" alt="" class="partner-img wow zoomIn" data-wow-duration="2s" />
-                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </section>

@@ -94,5 +94,32 @@
               <span class="menu-title">Services</span>
             </a>
           </li>
+          <br>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="clients.php">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Clients</span>
+            </a>
+          </li>
+          <br>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="latest_work.php">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">latest_work</span>
+            </a>
+          </li>
+          <br>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="partners.php">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">partners</span>
+            </a>
+          </li>
         </ul>
       </nav>

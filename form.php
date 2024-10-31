@@ -41,11 +41,11 @@ if (isset($_GET['header'])) {
                 }
                 else if($row['Field'] == 'image'){
                     ?>
-                    <input type="file" name="image" id="image" required>
+                    <input type="file" name="image" id="image">
                     <?php
                 }else{
                 ?>
-                <input type="text" name="<?php echo $row['Field']; ?>" id="<?php echo $row['Field']; ?>" required>
+                <input type="text" name="<?php echo $row['Field']; ?>" id="<?php echo $row['Field']; ?>">
                 <br>
                 <?php
                 }
@@ -53,7 +53,7 @@ if (isset($_GET['header'])) {
                 ?>
                 <br>
                 <br>
-                <input type="submit" value="<?php echo "Add $header_name"; ?>" name="<?php echo $header_name; ?>" required>
+                <input type="submit" value="<?php echo "Add $header_name"; ?>" name="<?php echo $header_name; ?>">
                 
             </form>
            

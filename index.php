@@ -1,3 +1,4 @@
+<?php include('db_connection.php') ?>
 <!DOCTYPE html>
 <html lang="" dir="">
 
@@ -73,17 +74,20 @@
         </div>
         <div class="container">
             <!--Start inner-header -->
+            <?php
+            $query_header = "SELECT * FROM `header`";
+            $result_header = mysqli_query($connection, $query_header);
+            $row = mysqli_fetch_assoc($result_header);
+            ?>
             <div class="inner-header">
                 <div class="row">
                     <div class="col-md-10 col-lg-7">
                         <div class="text-box ">
                             <div class="content wow text-focus-in ">
-                                <p class="subtitle">WE'RE modern business</p>
-                                <h1 class="title mt-3">Affordable High-End <br> Products</h1>
+                                <p class="subtitle"><?php echo $row['subtitle'] ?></p>
+                                <h1 class="title mt-3"><?php echo $row['title'] ?></h1>
                                 <p class="p mt-3">
-                                    The definition of business is an occupation or trade and the purchase and sale of
-                                    products or services to make a profit.
-                                    The definition of business is an occupation or trade and the purchase and sale.
+                                    <?php echo $row['description'] ?>
                                 </p>
                                 <div class="btns-wrapper mt-4">
                                     <a href="#" data-scroll-goto="1" class="main-btn">Explore</a>
@@ -101,54 +105,55 @@
     <main>
         <!--Start clients-sec -->
         <section class="clients-sec">
+            <?php
+            $query_clients = "SELECT * FROM `clients`";
+            $result_clients = mysqli_query($connection, $query_clients);
+            ?>
             <div class="container">
                 <div class="swiper-container clients-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="images/clients-1.png" alt="" class="partner-img wow zoomIn"
+                        <?php
+                        while ($row_clients = mysqli_fetch_assoc($result_clients)) {
+                            ?>
+                            <div class="swiper-slide">
+                            <img src="images/<?php echo $row_clients['image'] ?>" alt="" class="partner-img wow zoomIn"
                                 data-wow-duration="2s" />
                         </div>
-                        <div class="swiper-slide">
-                            <img src="images/clients-2.png" alt="" class="partner-img wow zoomIn"
-                                data-wow-duration="2s" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/clients-3.png" alt="" class="partner-img wow zoomIn"
-                                data-wow-duration="2s" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/clients-4.png" alt="" class="partner-img wow zoomIn"
-                                data-wow-duration="2s" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/clients-5.png" alt="" class="partner-img wow zoomIn"
-                                data-wow-duration="2s" />
-                        </div>
+                            <?php
+                        }
+                        
+                        ?>
+                        
                     </div>
                 </div>
             </div>
         </section>
         <!--Start about-sec -->
+        <?php 
+        $query_about = "SELECT * FROM `about`";
+        $result_about = mysqli_query($connection, $query_about);
+        $row_about = mysqli_fetch_assoc($result_about);
+
+        ?>
         <section class="about-sec" data-scroll-index="1">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="img-box">
-                            <img src="images/about-sec-1.png" alt="" class="main-img wow fadeInRight"
+                            <img src="images/<?php echo $row_about['image'] ?>" alt="" class="main-img wow fadeInRight"
                                 data-wow-duration="2s" />
-                            <img src="images/about-sec-2.png" alt="" class="card-img wow fadeInLeft"
+                            <img src="images/<?php echo $row_about['image'] ?>" alt="" class="card-img wow fadeInLeft"
                                 data-wow-duration="2s" data-wow-delay=".5s" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="text-box wow text-focus-in" data-wow-duration="2s">
                             <div class="text-h">
-                                <p class="subtitle">about us</p>
-                                <h1 class="title mt-3">Effective Strategy <br>For Growth</h1>
+                                <p class="subtitle"><?php echo $row_about['subtitle'] ?></p>
+                                <h1 class="title mt-3"><?php echo $row_about['title'] ?></h1>
                             </div>
                             <p class="p mt-3 ">
-                                The definition of business is an occupation or trade and the purchase and sale of
-                                products or services to make a profit. An example of business is farming.
+                                <?php echo $row_about['description'] ?>
                             </p>
                             <a href="#" class="more-btn mt-4 d-block" data-toggle="modal"
                                 data-target="#contentModal"><img src="images/icons/right-arrow.svg" alt=""
@@ -160,52 +165,43 @@
             <img src="images/pattern1.png" alt="" class="pattern wow fadeInRight" data-wow-duration="2s">
         </section>
         <!--Start about-goals -->
+        <?php
+        
+        $query_goals = "SELECT * FROM `goals`";
+        $result_goals = mysqli_query($connection, $query_goals);
+        ?>
         <section class="about-goals">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4">
+                    <?php
+                    while ($row_goals = mysqli_fetch_assoc($result_goals)) {
+                        ?>
+                        <div class="col-lg-4">
                         <div class="card wow swing-in-top-bck" data-wow-duration="1.5s">
                             <div class="content">
-                                <span class="icon-t"><img src="images/icons/about-goals-1.svg" alt=""></span>
-                                <h5 class="title mt-4">Goals</h5>
+                                <span class="icon-t"><img src="images/" alt=""></span>
+                                <h5 class="title mt-4"><?php echo $row_goals['title'] ?></h5>
                                 <p class="p">
-                                    The definition of business is an occupation or trade and the purchase and sale of
-                                    products or
+                                    <?php echo $row_goals['subtitle'] ?>
                                 </p>
                                 <!-- <a href="#" class="more-btn mt-4 d-block"><img src="images/icons/right-arrow.svg" alt="" class="icon"/> Learn more</a> -->
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card wow swing-in-top-bck" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="content">
-                                <span class="icon-t"><img src="images/icons/about-goals-2.svg" alt=""></span>
-                                <h5 class="title mt-4">Mission</h5>
-                                <p class="p">
-                                    The definition of business is an occupation or trade and the purchase and sale of
-                                    products or
-                                </p>
-                                <!-- <a href="#" class="more-btn mt-4 d-block"><img src="images/icons/right-arrow.svg" alt="" class="icon"/> Learn more</a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card wow swing-in-top-bck" data-wow-duration="1.5s" data-wow-delay=".6s">
-                            <div class="content">
-                                <span class="icon-t"><img src="images/icons/about-goals-3.svg" alt=""></span>
-                                <h5 class="title mt-4">Vision</h5>
-                                <p class="p">
-                                    The definition of business is an occupation or trade and the purchase and sale of
-                                    products or
-                                </p>
-                                <!-- <a href="#" class="more-btn mt-4 d-block"><img src="images/icons/right-arrow.svg" alt="" class="icon"/> Learn more</a> -->
-                            </div>
-                        </div>
-                    </div>
+                        <?php 
+                    }
+                    
+                    ?>
+                    
                 </div>
             </div>
         </section>
         <!--Start services-sec -->
+        <?php
+
+        $query_services = "SELECT * FROM `services`";
+        $result_services = mysqli_query($connection, $query_services);
+        ?>
         <section class="services-sec" data-scroll-index="2">
             <div class="container">
                 <div class="text-center text-h mb-5 wow fadeInUp" data-wow-duration="2s">
@@ -214,15 +210,16 @@
                     <p class="p mt-3">The definition of business is an occupation</p>
                 </div>
                 <div class="row">
+                    <?php
+                    while ($row_services = mysqli_fetch_assoc($result_services)) {
+                        ?>
                     <div class="col-md-4">
                         <div class="serv_card wow fadeInUp" data-wow-duration="2s">
                             <div class="content">
                                 <img src="images/icons/service-1.svg" alt="" class="icon mb-4">
-                                <h5 class="title">App Design</h5>
+                                <h5 class="title"><?php echo $row_services['title'] ?></h5>
                                 <p class="p">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-                                    eos
+                                    <?php echo $row_services['subtitle'] ?>
                                 </p>
                                 <a href="#" class="more-btn" data-toggle="modal" data-target="#contentModal">Learn More
                                     <img src="images/icons/right-arrow.svg" alt="" class="right-arrow-icon"></a>
@@ -230,42 +227,20 @@
                             <img src="images/pattern2.png" alt="" class="pattern">
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="serv_card wow fadeInUp" data-wow-duration="2s">
-                            <div class="content">
-                                <img src="images/icons/service-2.svg" alt="" class="icon mb-4">
-                                <h5 class="title">App Design</h5>
-                                <p class="p">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-                                    eos
-                                </p>
-                                <a href="#" class="more-btn" data-toggle="modal" data-target="#contentModal">Learn More
-                                    <img src="images/icons/right-arrow.svg" alt="" class="right-arrow-icon"></a>
-                            </div>
-                            <img src="images/pattern2.png" alt="" class="pattern">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="serv_card wow fadeInUp" data-wow-duration="2s">
-                            <div class="content">
-                                <img src="images/icons/service-3.svg" alt="" class="icon mb-4">
-                                <h5 class="title">App Design</h5>
-                                <p class="p">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-                                    eos
-                                </p>
-                                <a href="#" class="more-btn" data-toggle="modal" data-target="#contentModal">Learn More
-                                    <img src="images/icons/right-arrow.svg" alt="" class="right-arrow-icon"></a>
-                            </div>
-                            <img src="images/pattern2.png" alt="" class="pattern">
-                        </div>
-                    </div>
+                        <?php
+                    }
+                    
+                    ?>
+                    
                 </div>
             </div>
         </section>
         <!--Start portfolio-sec -->
+        <?php
+
+        $query_latest = "SELECT * FROM `latest_work`";
+        $result_latest = mysqli_query($connection, $query_latest);
+        ?>
         <section class="portfolio-sec" data-scroll-index="3">
             <div class="container">
                 <div class="text-center text-h mb-5 wow fadeInUp" data-wow-duration="2s">
@@ -275,311 +250,29 @@
                 </div>
                 <div class="tab-wrapper">
                     <div class="row">
+                        <?php
+                        while ($row_latest = mysqli_fetch_assoc($result_latest)) {
+                            ?>
                         <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-1.png" data-fancybox="images">
-                                <img src="images/portfolio-1.png" alt="" class="port_img sm" />
+                            <a href="images/<?php echo $row_latest['image'] ?>" class="port_img" data-fancybox="images">
+                                <img src="images/<?php echo $row_latest['image'] ?>" alt="" class="port_img sm" />
                             </a>
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-11.png" data-fancybox="images">
-                                <img src="images/portfolio-11.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-12.png" data-fancybox="images">
-                                <img src="images/portfolio-12.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-2.png" data-fancybox="images">
-                                <img src="images/portfolio-2.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-3.png" data-fancybox="images">
-                                <img src="images/portfolio-3.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-4.png" data-fancybox="images">
-                                <img src="images/portfolio-4.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-5.png" data-fancybox="images">
-                                <img src="images/portfolio-5.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-8.png" data-fancybox="images">
-                                <img src="images/portfolio-8.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-6.png" data-fancybox="images">
-                                <img src="images/portfolio-6.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-7.png" data-fancybox="images">
-                                <img src="images/portfolio-7.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-9.png" data-fancybox="images">
-                                <img src="images/portfolio-9.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a href="images/portfolio-10.png" data-fancybox="images">
-                                <img src="images/portfolio-10.png" alt="" class="port_img sm" />
-                            </a>
-                        </div>
+                            <?php
+                        }
+                        
+                        ?>
+                        
                     </div>
                 </div>
-                <!-- <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="pills-tab1-tab" data-toggle="pill" href="#pills-tab1" role="tab" aria-controls="pills-tab1" aria-selected="true">All</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="pills-tab2-tab" data-toggle="pill" href="#pills-tab2" role="tab" aria-controls="pills-tab2" aria-selected="false">Mobile App</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="pills-tab3-tab" data-toggle="pill" href="#pills-tab3" role="tab" aria-controls="pills-tab3" aria-selected="false">Web Design</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="pills-tab4-tab" data-toggle="pill" href="#pills-tab4" role="tab" aria-controls="pills-tab4" aria-selected="false">Dashboard</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-tab1" role="tabpanel" aria-labelledby="pills-tab1-tab">
-                        <div class="tab-wrapper">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <a href="images/portfolio-1.png" data-fancybox="images">
-                                        <img src="images/portfolio-1.png" alt="" class="port_img lg"/>
-                                    </a>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <a href="images/portfolio-11.png" data-fancybox="images">
-                                                <img src="images/portfolio-11.png" alt="" class="port_img sm"/>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <a href="images/portfolio-12.png" data-fancybox="images">
-                                                <img src="images/portfolio-12.png" alt="" class="port_img sm"/>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-2.png" data-fancybox="images">
-                                        <img src="images/portfolio-2.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-3.png" data-fancybox="images">
-                                        <img src="images/portfolio-3.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-4.png" data-fancybox="images">
-                                        <img src="images/portfolio-4.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-5.png" data-fancybox="images">
-                                        <img src="images/portfolio-5.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-6.png" data-fancybox="images">
-                                        <img src="images/portfolio-6.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-7.png" data-fancybox="images">
-                                        <img src="images/portfolio-7.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-8.png" data-fancybox="images">
-                                        <img src="images/portfolio-8.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-9.png" data-fancybox="images">
-                                        <img src="images/portfolio-9.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-10.png" data-fancybox="images">
-                                        <img src="images/portfolio-10.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-tab2" role="tabpanel" aria-labelledby="pills-tab2-tab">
-                        <div class="tab-wrapper">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <a href="images/portfolio-1.png" data-fancybox="images">
-                                        <img src="images/portfolio-1.png" alt="" class="port_img lg"/>
-                                    </a>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <a href="images/portfolio-11.png" data-fancybox="images">
-                                                <img src="images/portfolio-11.png" alt="" class="port_img sm"/>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <a href="images/portfolio-12.png" data-fancybox="images">
-                                                <img src="images/portfolio-12.png" alt="" class="port_img sm"/>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-2.png" data-fancybox="images">
-                                        <img src="images/portfolio-2.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-3.png" data-fancybox="images">
-                                        <img src="images/portfolio-3.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-4.png" data-fancybox="images">
-                                        <img src="images/portfolio-4.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-5.png" data-fancybox="images">
-                                        <img src="images/portfolio-5.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-6.png" data-fancybox="images">
-                                        <img src="images/portfolio-6.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-7.png" data-fancybox="images">
-                                        <img src="images/portfolio-7.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-8.png" data-fancybox="images">
-                                        <img src="images/portfolio-8.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-9.png" data-fancybox="images">
-                                        <img src="images/portfolio-9.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-10.png" data-fancybox="images">
-                                        <img src="images/portfolio-10.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-tab3" role="tabpanel" aria-labelledby="pills-tab3-tab">
-                        <div class="tab-wrapper">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <a href="images/portfolio-1.png" data-fancybox="images">
-                                        <img src="images/portfolio-1.png" alt="" class="port_img lg"/>
-                                    </a>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <a href="images/portfolio-11.png" data-fancybox="images">
-                                                <img src="images/portfolio-11.png" alt="" class="port_img sm"/>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <a href="images/portfolio-12.png" data-fancybox="images">
-                                                <img src="images/portfolio-12.png" alt="" class="port_img sm"/>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-2.png" data-fancybox="images">
-                                        <img src="images/portfolio-2.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-3.png" data-fancybox="images">
-                                        <img src="images/portfolio-3.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-4.png" data-fancybox="images">
-                                        <img src="images/portfolio-4.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-5.png" data-fancybox="images">
-                                        <img src="images/portfolio-5.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-6.png" data-fancybox="images">
-                                        <img src="images/portfolio-6.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-7.png" data-fancybox="images">
-                                        <img src="images/portfolio-7.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-8.png" data-fancybox="images">
-                                        <img src="images/portfolio-8.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-9.png" data-fancybox="images">
-                                        <img src="images/portfolio-9.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-10.png" data-fancybox="images">
-                                        <img src="images/portfolio-10.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-tab4" role="tabpanel" aria-labelledby="pills-tab4-tab">
-                        <div class="tab-wrapper">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <a href="images/portfolio-1.png" data-fancybox="images">
-                                        <img src="images/portfolio-1.png" alt="" class="port_img lg"/>
-                                    </a>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <a href="images/portfolio-11.png" data-fancybox="images">
-                                                <img src="images/portfolio-11.png" alt="" class="port_img sm"/>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <a href="images/portfolio-12.png" data-fancybox="images">
-                                                <img src="images/portfolio-12.png" alt="" class="port_img sm"/>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-2.png" data-fancybox="images">
-                                        <img src="images/portfolio-2.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-3.png" data-fancybox="images">
-                                        <img src="images/portfolio-3.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-4.png" data-fancybox="images">
-                                        <img src="images/portfolio-4.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-5.png" data-fancybox="images">
-                                        <img src="images/portfolio-5.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-6.png" data-fancybox="images">
-                                        <img src="images/portfolio-6.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-7.png" data-fancybox="images">
-                                        <img src="images/portfolio-7.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                                <div class="col-md-4 col-lg-2">
-                                    <a href="images/portfolio-8.png" data-fancybox="images">
-                                        <img src="images/portfolio-8.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-9.png" data-fancybox="images">
-                                        <img src="images/portfolio-9.png" alt="" class="port_img sm"/>
-                                    </a>
-                                    <a href="images/portfolio-10.png" data-fancybox="images">
-                                        <img src="images/portfolio-10.png" alt="" class="port_img sm"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </section>
         <!--Start partners-sec -->
+        <?php 
+        $query_partners = "SELECT * FROM `partners`";
+        $result_partners = mysqli_query($connection, $query_partners);
+        $row_partners = mysqli_fetch_assoc($result_partners);
+        ?>
         <section class="partners-sec">
             <div class="container">
                 <div class="text-center text-h mb-5 wow fadeInUp" data-wow-duration="2s">
@@ -588,22 +281,26 @@
                     <p class="p mt-3">The definition of business is an occupation</p>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                        <img src="images/partners-1.png" alt="" class="partner-img wow zoomIn" data-wow-duration="2s" />
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <img src="images/partners-2.png" alt="" class="partner-img wow zoomIn" data-wow-duration="2s" />
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <img src="images/partners-3.png" alt="" class="partner-img wow zoomIn" data-wow-duration="2s" />
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <img src="images/partners-4.png" alt="" class="partner-img wow zoomIn" data-wow-duration="2s" />
-                    </div>
+                    <?php
+                    while ($row_partners = mysqli_fetch_assoc($result_partners)) {
+                        ?>
+                        <div class="col-md-6 col-lg-3">
+                        <img src="images/<?php echo $row_partners['image'] ?>" alt="" class="partner-img wow zoomIn" data-wow-duration="2s" />
+                        </div>
+                        <?php 
+                    }
+                    
+                    ?>
+                    
                 </div>
             </div>
         </section>
         <!--Start contact-sec -->
+        <?php 
+        $query_contact = "SELECT * FROM `contact`";
+        $result_contact = mysqli_query($connection, $query_contact);
+        $row_contact = mysqli_fetch_assoc($result_contact);
+        ?>
         <section class="contact-sec">
             <div class="container">
                 <div class="row">
@@ -616,12 +313,9 @@
                                     issue.</p>
                             </div>
                             <div class="links pt-2">
-                                <a href="#"><img src="images/icons/contact-1.svg" alt="" class="icon" /> 292 St.
-                                    Jeddah,KSA ,BOX 44035</a>
-                                <a href="#"><img src="images/icons/contact-2.svg" alt="" class="icon" /> +966 485 6789
-                                    012</a>
-                                <a href="#"><img src="images/icons/contact-3.svg" alt="" class="icon" />
-                                    info@notcrash.com</a>
+                                <a href="#"><img src="images/icons/contact-1.svg" alt="" class="icon" /><?php echo $row_contact['address']; ?></a>
+                                <a href="#"><img src="images/icons/contact-2.svg" alt="" class="icon" /><?php echo $row_contact['phone']; ?></a>
+                                <a href="#"><img src="images/icons/contact-3.svg" alt="" class="icon" /><?php echo $row_contact['email']; ?></a>
 
                             </div>
                         </div>

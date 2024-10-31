@@ -1,3 +1,11 @@
+<?php
+include('db_connection.php');
+
+$query='SHOW TABLES';
+$result = mysqli_query($connection, $query);
+
+?>
+
 <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -58,68 +66,23 @@
           <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
           </li>
+
+          <?php
+          while($row = mysqli_fetch_array($result)) {
+            ?>
+             <li class="nav-item menu-items">
+    <a class="nav-link" href="form.php?header=<?php echo urlencode($row[0]); ?>">
+        <span class="menu-icon">
+            <i class="mdi mdi-file-document-box"></i>
+        </span>
+        <span class="menu-title"><?php echo $row[0]; ?></span>
+    </a>
+</li>
+          <br>
+          <?php
+          }
           
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="title.php">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">Title</span>
-            </a>
-          </li>
-          <br>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="about.php">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">About</span>
-            </a>
-          </li>
-          <br>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="goals.php">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">Goals</span>
-            </a>
-          </li>
-          <br>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="services.php">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">Services</span>
-            </a>
-          </li>
-          <br>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="clients.php">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">Clients</span>
-            </a>
-          </li>
-          <br>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="latest_work.php">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">latest_work</span>
-            </a>
-          </li>
-          <br>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="partners.php">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">partners</span>
-            </a>
-          </li>
+          ?>
+          
         </ul>
       </nav>
